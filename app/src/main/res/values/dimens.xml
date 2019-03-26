@@ -13,6 +13,7 @@
     <dimen name="nonePadding">0dp</dimen>
 
     <!-- Margin Dimens -->
+    <dimen name="heavyMargin">32dp</dimen>
     <dimen name="largeMargin">16dp</dimen>
     <dimen name="mediumMargin">8dp</dimen>
     <dimen name="shortMargin">4dp</dimen>
@@ -23,5 +24,8 @@
     <dimen name="mediumRadius">8dp</dimen>
     <dimen name="softRadius">4dp</dimen>
     <dimen name="noneRadius">0dp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="softElevation">1dp</dimen>
 
 </resources>

@@ -5,23 +5,29 @@
     android:layout_height="match_parent">
 
     <!-- Other components and views -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_podcastlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <android.support.design.bottomappbar.BottomAppBar
-        android:id="@+id/bar"
+        android:id="@+id/bottomAppBar"
         style="android.support.design.bottomappbar.BottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/colorPrimary"
-        app:hideOnScroll="true"
-        app:navigationIcon="@drawable/ic_round_menu_white_48"/>
+        app:hideOnScroll="true">
+
+    </android.support.design.bottomappbar.BottomAppBar>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_feedback"
         style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:backgroundTint="@color/colorPrimaryDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/bar"/>
+        android:src="@drawable/ic_round_shuffle_white_48"
+        app:layout_anchor="@id/bottomAppBar"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PodCastProject</string>
+    <string name="title_menu_bottomappbar_information">information</string>
+
 </resources>
