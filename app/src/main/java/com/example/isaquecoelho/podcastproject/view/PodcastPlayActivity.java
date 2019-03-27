@@ -74,7 +74,7 @@ public class PodcastPlayActivity extends AppCompatActivity {
         mTextViewTheme.setText(mPodcast.getPodcastTheme());
         mTextViewDuration.setText(mPodcast.getPodcastDuration());
         mTextViewAuthor.setText(mPodcast.getPodcastAutor());
-        mTextViewParticipants.setText(getParticipants());
+        //mTextViewParticipants.setText(getParticipants());
 
         populateAdapter();
     }
