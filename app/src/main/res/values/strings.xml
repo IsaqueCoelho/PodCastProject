@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">PodCastProject</string>
     <string name="title_menu_bottomappbar_information">information</string>
+    <string name="msg_textview_podcastplay_author">Author</string>
+    <string name="msg_textview_podcastplay_duration">Duration</string>
+    <string name="msg_textview_podcastplay_theme">Theme</string>
+    <string name="msg_textview_podcastplay_participants">Participants:</string>
+    <string name="msg_imageview_podcastplay_bannercontentdescription">Podcast Banner</string>
 
 </resources>

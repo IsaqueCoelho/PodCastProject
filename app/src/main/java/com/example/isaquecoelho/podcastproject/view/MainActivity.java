@@ -1,5 +1,6 @@
 package com.example.isaquecoelho.podcastproject.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.FloatingActionButton;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        mRepository.startPodcastList();
         settingView();
         listeningView();
 
@@ -85,10 +87,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void populateAdapter() {
 
+        final String EXTRA_POSITION = "POSITION_PODCAST";
+
         mPodcastAdapter = new PodcastAdapter(Repository.getmPodcastList(), new PodcastAdapter.PodcastItemOnClickListener() {
             @Override
             public void onClick(int position) {
-
+                Intent podcastPlayIntent = new Intent(MainActivity.this, PodcastPlayActivity.class);
+                podcastPlayIntent.putExtra(EXTRA_POSITION, position);
+                startActivity(podcastPlayIntent);
             }
         });
 
@@ -117,12 +123,10 @@ public class MainActivity extends AppCompatActivity {
             case 'P':
                 mRepository.restartPodcastList();
                 mPodcastAdapter.notifyDataSetChanged();
-                Toast.makeText(this, "Ordered Playlist", Toast.LENGTH_LONG).show();
                 break;
             case 'R':
                 mRepository.getRandomPodcastList();
                 mPodcastAdapter.notifyDataSetChanged();
-                Toast.makeText(this, "Random Playlist", Toast.LENGTH_LONG).show();
         }
     }
 }

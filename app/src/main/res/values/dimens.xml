@@ -4,7 +4,7 @@
     <!-- Text Dimens -->
     <dimen name="titleText">20sp</dimen>
     <dimen name="bodyText">16sp</dimen>
-    <dimen name="overlineText">12sp</dimen>
+    <dimen name="overlineText">10sp</dimen>
 
     <!-- Padding Dimens -->
     <dimen name="largePadding">16dp</dimen>
