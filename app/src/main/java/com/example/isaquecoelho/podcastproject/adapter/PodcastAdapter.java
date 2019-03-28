@@ -34,7 +34,7 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PodcastViewHolder podcastViewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final PodcastViewHolder podcastViewHolder, int position) {
         Podcast podcast = mPodcastList.get(position);
 
         podcastViewHolder.mTextViewTitle.setText(podcast.getPodcastTitle());
@@ -43,7 +43,7 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
         podcastViewHolder.mFloatingActionButtonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPodcastItemOnClickListener.onClick(position);
+                mPodcastItemOnClickListener.onClick(podcastViewHolder.getAdapterPosition());
             }
         });
     }

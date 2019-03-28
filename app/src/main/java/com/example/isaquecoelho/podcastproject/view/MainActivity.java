@@ -1,16 +1,17 @@
 package com.example.isaquecoelho.podcastproject.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.isaquecoelho.podcastproject.R;
 import com.example.isaquecoelho.podcastproject.adapter.PodcastAdapter;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.bottomappbar_info:
-                Toast.makeText(this, "info app", Toast.LENGTH_LONG).show();
+                showAlertDialogInfo();
                 break;
         }
 
@@ -121,12 +122,24 @@ public class MainActivity extends AppCompatActivity {
     private void settingList() {
         switch (orderList){
             case 'P':
-                mRepository.restartPodcastList();
+                mRepository.startPodcastList();
                 mPodcastAdapter.notifyDataSetChanged();
                 break;
             case 'R':
                 mRepository.getRandomPodcastList();
                 mPodcastAdapter.notifyDataSetChanged();
         }
+    }
+
+    private void showAlertDialogInfo(){
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_name)
+                .setMessage(getString(R.string.msg_alertdialog_podcastplay))
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 }

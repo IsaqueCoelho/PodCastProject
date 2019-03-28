@@ -13,19 +13,11 @@ public class Repository {
     private static List<Podcast> mPodcastList = new ArrayList<>();
 
     public Repository() {
-        buildPodcastList();
-        buildParticipantList();
     }
 
     public void startPodcastList(){
-        buildPodcastList();
-        buildParticipantList();
-        settingPlaylistAndParticipant();
-    }
-
-    public void restartPodcastList(){
         mPodcastList.clear();
-        startPodcastList();
+        buildPodcastList();
     }
 
     private void buildPodcastList(){
@@ -111,69 +103,100 @@ public class Repository {
                 null));
     }
 
-    private List<Participant> getRpgParticipant(int rpgVersion) {
+    public void settingParticipantList(int position){
 
-        List<Participant> participantList = buildParticipantList();
+        List<Participant> podcastParticipantList = new ArrayList<>();
+        List<Participant> allParticipantList = getAllParticipant();
 
-        final int participantListSize = participantList.size();
-
-        for (int countParticipant = 0; countParticipant < participantListSize; countParticipant++) {
-
-
-        }
-
-        return participantList;
-    }
-
-    private List<Participant> buildParticipantList(){
-        List<Participant> participantList = new ArrayList<>();
-
-        participantList.add(new Participant("Allotoni","@jovemnerd"));
-        participantList.add(new Participant("Azaghal","@azaghal"));
-        participantList.add(new Participant("Carlos Voltor","@carlosvoltor"));
-        participantList.add(new Participant("JP","@jp_miguel"));
-        participantList.add(new Participant("Eduardo Spohr","@eduardospohr"));
-        participantList.add(new Participant("Tucano","@cancerjack"));
-        participantList.add(new Participant("Rex","@rex2099"));
-        participantList.add(new Participant("Tresde","@afonso3d"));
-        participantList.add(new Participant("Android",null));
-        participantList.add(new Participant("Leonel Caldela","@leonelcaldela"));
-
-        return participantList;
-    }
-
-    public void settingPlaylistAndParticipant(){
-
-        List<Podcast> podcastList = new ArrayList<>();
-        for (int countPodcast = 0; countPodcast < mPodcastList.size(); countPodcast++) {
-
-            podcastList.clear();
-            //mPodcastList.get(countPodcast).setPodcastParticipantList(getRpgParticipant(countPodcast));
-
-            for (int countPlaylist = 0; countPlaylist < mPodcastList.size(); countPlaylist++) {
-
-                if(mPodcastList.get(countPodcast).getPodcastTheme().equals(mPodcastList.get(countPlaylist).getPodcastTheme())){
-
-                    podcastList.add(mPodcastList.get(countPlaylist));
-
-                    mPodcastList.get(countPodcast).setPodcastPlaylist(podcastList);
-                }
-
+        for (int countPartcipant = 0; countPartcipant < allParticipantList.size(); countPartcipant++) {
+            switch (position){
+                case 0:
+                    if(countPartcipant < 5 || countPartcipant == 9){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
+                case 1:
+                    if(countPartcipant < 6 || countPartcipant == 7){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
+                case 2:
+                    if(countPartcipant < 6 || countPartcipant == 9){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
+                case 3:
+                    if(countPartcipant < 7){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
+                case 4:
+                    if(countPartcipant < 8){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
+                case 5:
+                    if(countPartcipant < 7 || countPartcipant == 10){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
+                case 6:
+                    if(countPartcipant < 3 || countPartcipant == 4 || countPartcipant == 5){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
+                case 7:
+                    if(countPartcipant < 3 || countPartcipant == 4 || countPartcipant == 5){
+                        podcastParticipantList.add(allParticipantList.get(countPartcipant));
+                    }
+                    break;
             }
-
         }
+        mPodcastList.get(position).setPodcastParticipantList(podcastParticipantList);
+    }
 
+    private List<Participant> getAllParticipant(){
+        List<Participant> podcastParticipantList = new ArrayList<>();
+
+        podcastParticipantList.add(new Participant("Allotoni","@jovemnerd"));
+        podcastParticipantList.add(new Participant("Azaghal","@azaghal"));
+        podcastParticipantList.add(new Participant("Carlos Voltor","@carlosvoltor"));
+        podcastParticipantList.add(new Participant("JP","@jp_miguel"));
+        podcastParticipantList.add(new Participant("Tucano","@cancerjack"));
+        podcastParticipantList.add(new Participant("Rex","@rex2099"));
+        podcastParticipantList.add(new Participant("Android",null));
+        podcastParticipantList.add(new Participant("Tresde","@afonso3d"));
+        podcastParticipantList.add(new Participant("Leonel Caldela","@leonelcaldela"));
+        podcastParticipantList.add(new Participant("Eduardo Spohr","@eduardospohr"));
+        podcastParticipantList.add(new Participant("Sr. K","@sr_k_"));
+
+        return podcastParticipantList;
     }
 
     public static List<Podcast> getmPodcastList() {
         return mPodcastList;
     }
 
-    public static void setmPodcastList(List<Podcast> mPodcastList) {
-        Repository.mPodcastList = mPodcastList;
-    }
-
     public void getRandomPodcastList(){
         Collections.shuffle(mPodcastList);
+    }
+
+    public void settingPlaylist(int position_podcast) {
+
+        List<Podcast> podcastPlaylist = new ArrayList<>();
+
+        String podacastTheme = mPodcastList.get(position_podcast).getPodcastTheme();
+        String podcastTitle = mPodcastList.get(position_podcast).getPodcastTitle();
+
+        for (Podcast podcastItem: mPodcastList) {
+
+            if( podcastItem.getPodcastTheme().equalsIgnoreCase( podacastTheme )
+                    && !podcastItem.getPodcastTitle().equalsIgnoreCase( podcastTitle )){
+                podcastPlaylist.add(podcastItem);
+            }
+        }
+
+        mPodcastList.get(position_podcast).setPodcastPlaylist(podcastPlaylist);
+
     }
 }

@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView
+        android:id="@+id/scrollview_podcastplay_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -128,7 +130,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/mediumPadding"
+                android:layout_marginTop="@dimen/largeMargin"
                 android:layout_marginStart="@dimen/mediumMargin"
                 android:layout_marginEnd="@dimen/mediumMargin"
                 android:orientation="horizontal">
@@ -146,18 +148,32 @@
 
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView_podcastplay_playlist"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/mediumPadding"
                 android:layout_marginStart="@dimen/mediumMargin"
-                android:layout_marginEnd="@dimen/mediumMargin"/>
+                android:layout_marginEnd="@dimen/mediumMargin"
+                android:textSize="@dimen/bodyText"
+                android:textStyle="bold"
+                android:text="@string/msg_texview_podcastplay"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mediumMargin"
+                android:layout_marginStart="@dimen/mediumMargin"
+                android:layout_marginEnd="@dimen/mediumMargin">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView_podcastplay_playlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
 
-
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
 
     <android.support.design.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar_podcastplay"
@@ -166,8 +182,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/colorPrimary"
-        app:hideOnScroll="true"
-        app:fabAlignmentMode="end">
+        app:hideOnScroll="true">
 
     </android.support.design.bottomappbar.BottomAppBar>
 

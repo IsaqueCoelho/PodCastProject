@@ -6,5 +6,6 @@
     <string name="msg_textview_podcastplay_theme">Theme</string>
     <string name="msg_textview_podcastplay_participants">Participants:</string>
     <string name="msg_imageview_podcastplay_bannercontentdescription">Podcast Banner</string>
-
+    <string name="msg_texview_podcastplay">Playlist</string>
+    <string name="msg_alertdialog_podcastplay">Welcome to the PodcastApp, here you can see podcast RPG list and access a specific podcast! Ironically you only can\'t play a podcast "\n" ¯\\_(ツ)_/¯</string>
 </resources>
